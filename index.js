@@ -3,6 +3,7 @@ import express from "express";
 import session from "express-session";
 import connectMongodbSession from "connect-mongodb-session";
 import dotenv from "dotenv";
+import cors from "cors"
 
 // other file imports
 import { mongoconnection } from "./mongooseConnections.js";
@@ -49,7 +50,8 @@ const port = process.env.PORT;
 app.listen(port, () => { console.log(`App is running at port:${port}`, "URL: http://localhost:7000") });
 
 // middlewares
-app.use(express.json())
+app.use(express.json());
+app.use(cors());
 
 // public route
 app.use("/movies", publicRoutes);
