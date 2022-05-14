@@ -31,7 +31,7 @@ const store = new dbStoreSession({
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: store,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
