@@ -1,7 +1,8 @@
 // packages imports
 import express from "express";
 import session from "express-session";
-var dbStoreSession = require('connect-mongodb-session')(session);
+import connectMongodbSession from "connect-mongodb-session";
+
 import dotenv from "dotenv";
 import cors from "cors"
 
@@ -19,6 +20,7 @@ await mongoconnection()
 // server configuration
 const app = express();
 
+const dbStoreSession = await connectMongodbSession(session);
 // Database connection for storing sessions
 const store = new dbStoreSession({
     uri: process.env.MONGO_URL,
