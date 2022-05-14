@@ -20,7 +20,7 @@ await mongoconnection()
 // server configuration
 const app = express();
 
-const dbStoreSession =  connectMongodbSession(session);
+const dbStoreSession = connectMongodbSession(session);
 // Database connection for storing sessions
 const store = new dbStoreSession({
     uri: process.env.MONGO_URL,
